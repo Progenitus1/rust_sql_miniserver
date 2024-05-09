@@ -1,0 +1,8 @@
+# general files to avoid
+**/.vscode
+**/.idea
+**/.DS_Store
+
+# Rust specific
+**/target
+**/Cargo.lock

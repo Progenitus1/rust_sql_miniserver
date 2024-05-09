@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = [
+    "persistence",
+    "query_parser",
+    "sql_server",
+    "transaction_control",
+    "common"
+]

@@ -1,0 +1,13 @@
+[package]
+name = "transaction_control"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+persistence = { path = "../persistence" }
+query_parser = { path = "../query_parser" }
+common = { path = "../common" }
+thiserror = "1.0.38"
+tokio = { version = "1", features = ["full"] }

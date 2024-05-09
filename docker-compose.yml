@@ -1,0 +1,19 @@
+version: '3'
+services:
+  client:
+    image: client
+    build: ./db_web_client
+    networks:
+      - default
+    ports:
+      - "3000:3000"
+    depends_on:
+      - sql_server
+
+  sql_server:
+    image: sql_server
+    build: .
+    networks:
+      - default
+    ports:
+      - "9000:9000"

@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        font-family: 'Poppins', sans-serif;
+        @apply bg-dark-gray h-screen max-h-screen;
+    }
+
+    h1 {
+        @apply text-light-gray;
+    }
+
+    #root {
+        @apply h-full max-h-full;
+    }
+
+}
+
+@layer components {
+    .query-input {
+        @apply bg-gray border-white/60 border-2 rounded-md;
+        @apply text-light-gray px-3;
+    }
+
+    .query-input__textarea {
+        @apply focus:ring-0 focus:outline-0 focus:border-orange focus:border-2;
+    }
+
+    .query-btn {
+        @apply h-10 text-white px-10 rounded-md bg-orange disabled:opacity-50;
+    }
+
+    .db-table {
+        @apply relative p-5 bg-gray rounded-md w-full h-full max-h-full overflow-auto;
+    }
+
+    .db-table table {
+        @apply border-collapse text-light-gray min-w-full border border-white/50 rounded-md;
+    }
+
+    .db-table table tr {
+        @apply border-b border-white/50;
+    }
+
+    .db-table table td {
+        @apply border-r last:border-r-0  border-white/20 py-1.5 px-4;
+    }
+
+    .db-table table th {
+        @apply py-1.5 px-2 text-orange font-normal border-r last:border-r-0 border-white/20;
+    }
+}
+
+.token.keyword {
+    @apply text-orange;
+}
+
+.token.string {
+    @apply text-green;
+}
+
+.token.comment {
+    @apply text-light-gray/30;
+}

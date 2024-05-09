@@ -1,0 +1,56 @@
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+stages:
+  - build
+  - tests
+
+default:
+  image: rust:alpine3.16
+  before_script:
+    - apk add --no-cache alpine-sdk
+    - rustc --version
+    - cargo --version
+  tags:
+    - shared-fi
+
+build:persistence:
+  stage: build
+  script:
+    - cargo build -p persistence --verbose
+
+build:query_parser:
+  stage: build
+  script:
+    - cargo build -p query_parser --verbose
+
+build:transaction_control:
+  stage: build
+  script:
+    - cargo build -p transaction_control --verbose
+
+build:sql_server:
+  stage: build
+  script:
+    - cargo build -p sql_server --verbose
+
+test:persistence:
+  stage: tests
+  script:
+    - cargo test -p persistence
+
+test:query_parser:
+  stage: tests
+  script:
+    - cargo test -p query_parser
+
+test:transaction_control:
+  stage: tests
+  script:
+    - cargo test -p transaction_control
+
+test:integration:
+  stage: tests
+  script:
+    - cargo test -p sql_server
